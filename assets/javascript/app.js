@@ -1,69 +1,72 @@
-// array of 2 point questions
-	// questions should be objects with a name, question, answer, 3 wrong responses point value
-var twoPointQs = [
+var questions = [
 	{	"name" : "Number of Championships",
 		"question" : "How many championships have the Rockets won?",
-		"value" : 2,
 		"answer" : "2",
-		"wrong": ["5", "1", "8"]
+		"option": ["2", "5", "1", "8"]
 	},
 	{	"name" : "First Championship Year",
 		"question" : "In what year did the Rockets win their first Championship?",
-		"value" : 2,
 		"answer" : "1994",
-		"wrong": ["1995", "1967", "1971"]
+		"option": ["1994", "1995", "1967", "1971"]
 	},
 	{	"name" : "Not Rockets",
-		"question" : "Which player has not played for the Rockets",
-		"value" : 2,
+		"question" : "Which NBA player has not played for the Rockets?",
 		"answer" : "They have all played for the Rockets",
-		"wrong": ["Hakeem Olajuwon", "Calvin Murphy", "Kyle Lowry"]
-	}
+		"option": ["They have all played for the Rockets", "Hakeem Olajuwon", "Calvin Murphy", "Kyle Lowry"]
+	},
+	{	"name" : "Tallest Rockets",
+		"question" : "Who is the tallest Rocket in history?",
+		"answer" : "Yao Ming",
+		"option": ["Yao Ming", "Hakeem Olajuwon", "Manute Bol", "Ralph Sampson"]
+	},
+	{	"name" : "TMac",
+		"question" : "How many points did Tracy McGrady famously score in how many seconds at the end of a game?",
+		"answer" : "13 points in 33 seconds",
+		"option": ["13 points in 33 seconds", "9 points in 13 seconds", "3 points in .02 seconds", "20 points in 50 seconds"]
+	},
+	{	"name" : "Bullet Proof",
+		"question" : "What Rocket was shot in the leg and played in a game 2 weeks later?",
+		"answer" : "Carl Landry",
+		"option": ["Carl Landry", "Patrick Beverly", "Charles Barkley", "Vernon Maxwell"]
+	},
+	{	"name" : "Orignal City",
+		"question" : "In what city were the Rockets founded?",
+		"answer" : "San Diego",
+		"option": ["San Diego", "Houston", "Orlando", "St. Louis"]
+	},
+	{	"name" : "Win Streak",
+		"question" : "Which player was the leading scorer during the Rockets' longest winning streak?",
+		"answer" : "Yao Ming",
+		"option": ["Yao Ming", "James Harden", "Hakeem Olajuwon", "Moses Malone"]
+	},
 ]
-var threePointQs = [
-	{	"name" : "",
-		"question" : "",
-		"value" : 3,
-		"answer" : "",
-		"wrong": ["", "", ""]
+
+var time = 60;
+
+// https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
+	function run () {
+		setInterval(countdown, 1000)		
 	}
-]
 
-console.log(twoPointQs[2].wrong[0]);
+	function countdown () {
+		time--
+		$("shotclock").text(time)
+	}
 
-// array of 3 point questions
+// randomize question order and options
 
-// array of 1 point questions
 
-// player score
-// visitor score
-// gameState = false
+// Generating the questions
+$(document).ready(function(){
+	for (i=0;i<questions.length;i++) {
+		var questionBox = $("<form id='"+questions[i].name+"'>"+questions[i].question+"<br></form>");
+		questionBox.addClass("box");
+		for (j=0;j<questions[i].option.length;j++) {
+			$(questionBox).append("<input type='radio' name='choice' value='"+questions[i].option[j]+"'>"+questions[i].option[j])
+			console.log(questions[i].option[j]);
+		}
+		$("#questions").append(questionBox);		
+	}
+	$("#questions").append("<button>Submit</button>")
 
-// function nextquestion () {}
-
-// if 3 pt questions.length = 0
-	// ask a 2 pt question
-
-// if 2 pt questions.length = 0
-	// ask a 3 pt question
-
-// else var valueDec = Math.floor(Math.random() * 2)
-	// if valueDec  < 1 {
-		// ask a 3 pt question
-	// } else {
-		// ask a 2 point question
-	// }
-
-	// question function
-	// if user selection = obj.correctAnswer {
-		// if (drawFoul) {
-			// award points
-			// ask a 1 point question
-		// } else {
-			// awardpoints
-			// nextquestion
-		// }
-	// }
-		// else {
-			// awardvisitor points
-	// }
+})

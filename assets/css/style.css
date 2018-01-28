@@ -1,8 +1,11 @@
 body {
 	background-image: url('../images/background.jpg');
-	background-size: cover;
+	background-size: contain;s
 	box-sizing: border-box;
-	font-size: 15px;
+	font-size: 25px;
+	font-weight: 500;
+	padding-top: 170px;
+	font-family: 'Monda', sans-serif;
 }
 
 h1 {
@@ -10,17 +13,40 @@ h1 {
 }
 
 button {
+	background-color: white;
+	color: red;
+	padding: 20px;
+	border: none;
+	margin-bottom: 20px;
+	font-size: 1.5em;
+}
+
+#questions {
+	text-align: center;
+}
+
+#head {
+	position: fixed;
+	width: 100%;
+	padding: 20px 0;
 	background-color: red;
 	color: white;
-	padding: 10px;
-	border: none;
+	text-align: center;
+	line-height: 1.5em;
+	top: 0;
 }
 
 .box {
 	padding: 20px;
-	background-color: rgba(255, 255, 255, .8);
+	background-color: rgba(230, 230, 230, .9);
 	text-align: center;
 	width: 70%;
 	margin: 20px 15%;
 }
 
+#shotclock {
+	color: white;
+	background-color: black;
+	padding: 4px;
+	font-family: 'Orbitron', sans-serif;
+}
